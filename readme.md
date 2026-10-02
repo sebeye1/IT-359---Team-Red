@@ -81,7 +81,6 @@ The sponsor provides project requirements, evaluates deliverables, provides feed
 - Cookie security analysis
 - Basic link discovery
 - Basic form discovery
-- Basic technology fingerprinting
 - Detection of selected security misconfigurations
 - Severity classification
 - HTML report generation
