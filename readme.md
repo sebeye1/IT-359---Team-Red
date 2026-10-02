@@ -307,3 +307,7 @@ Each item should include:
 This allows project tasks to remain synchronized with the primary project-tracking system rather than being managed solely within this project document.
 
 ---
+
+# Use Of Artificial Intelligence 
+
+We plan on using Claude 4 for assistance in our python scripting. We will engineer and automate the artificial intelligence to ensure our in-scope requirements are met. 
