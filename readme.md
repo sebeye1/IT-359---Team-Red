@@ -310,3 +310,4 @@ This allows project tasks to remain synchronized with the primary project-tracki
 # Use Of Artificial Intelligence 
 
 We plan on using Claude 4 for assistance in our python scripting. We will engineer and automate the artificial intelligence to ensure our in-scope requirements are met. 
+Utilizing Sushi, we will be using the "llama3.3:latest" model to generate the CVSS scores based on the vulnerability findings. 
