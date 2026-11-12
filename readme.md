@@ -42,8 +42,9 @@ The project will be considered successful when:
 
 | Milestone | Date |
 |---|---|
-| **Start Date** | August 27, 2026 |
-| **End Date** | December 4, 2026 |
+| **Start Date** | August 27th, 2026 |
+| **Presentation Date** | November 17th | 
+| **End Date** | December 3rd, 2026 |
 
 ---
 
@@ -65,7 +66,7 @@ The sponsor provides project requirements, evaluates deliverables, provides feed
 | QA/Test Lead | Quality Assurance | Tests functionality and identifies defects |
 | End User | Security Analyst | Provides usability feedback and evaluates reports |
 
-> **Note:** If this is an individual project, the Developer, Security Tester, and QA/Test Lead roles can all be assigned to the student.
+> **Note:** If this is an individual project, the Developer, Security Tester, and QA/Test Lead roles can all be assigned to the student!
 
 ---
 
