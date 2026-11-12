@@ -266,26 +266,27 @@ Progress reports should include:
 
 # Action Items
 
-| Task | Owner | Due Date | Status | GSD Sync |
-|---|---|---|---|---|
-| Finalize project requirements | Student Developer | Sept. 10 | Not Started | Push to GSD |
-| Design application architecture | Student Developer | Sept. 17 | Not Started | Push to GSD |
-| Set up Python development environment | Student Developer | Sept. 5 | Not Started | Push to GSD |
-| Set up authorized vulnerable web lab | Security Tester | Sept. 12 | Not Started | Push to GSD |
-| Implement HTTP reconnaissance | Developer | Sept. 26 | Not Started | Push to GSD |
-| Implement header analysis | Developer | Oct. 3 | Not Started | Push to GSD |
-| Implement cookie analysis | Developer | Oct. 7 | Not Started | Push to GSD |
-| Implement link/form discovery | Developer | Oct. 10 | Not Started | Push to GSD |
-| Implement technology fingerprinting | Developer | Oct. 16 | Not Started | Push to GSD |
-| Implement misconfiguration checks | Developer | Oct. 23 | Not Started | Push to GSD |
-| Implement severity classification | Developer | Oct. 25 | Not Started | Push to GSD |
-| Implement HTML reporting | Developer | Oct. 30 | Not Started | Push to GSD |
-| Create automated tests | QA/Test Lead | Nov. 6 | Not Started | Push to GSD |
-| Perform laboratory testing | Security Tester | Nov. 13 | Not Started | Push to GSD |
-| Perform remediation/retest | Security Tester | Nov. 20 | Not Started | Push to GSD |
-| Complete documentation | Project Lead | Nov. 27 | Not Started | Push to GSD |
-| Prepare final presentation | Project Lead | Dec. 2 | Not Started | Push to GSD |
-| Conduct final demonstration | Project Team | Dec. 4 | Not Started | Push to GSD |
+| Task | Owner | Due Date | GSD Sync |
+|---|---|---|---|
+| Set up Python development environment | Student Developer | Sept. 5 | Push to GSD |
+| Finalize project requirements | Student Developer | Sept. 10 | Push to GSD |
+| Set up authorized vulnerable web lab | Security Tester | Sept. 12 | Push to GSD |
+| Design application architecture | Student Developer | Sept. 17 | Push to GSD |
+| Implement HTTP reconnaissance | Developer | Sept. 26 | Push to GSD |
+| Implement header analysis | Developer | Oct. 3 | Push to GSD |
+| Implement cookie analysis | Developer | Oct. 7 | Push to GSD |
+| Implement link/form discovery | Developer | Oct. 10 | Push to GSD |
+| Implement technology fingerprinting | Developer | Oct. 16 | Push to GSD |
+| Implement misconfiguration checks | Developer | Oct. 23 | Push to GSD |
+| Implement severity classification | Developer | Oct. 25 | Push to GSD |
+| Implement HTML reporting | Developer | Oct. 30 | Push to GSD |
+| Create automated tests | QA/Test Lead | Nov. 6 | Push to GSD |
+| Perform laboratory testing | Security Tester | Nov. 10 | Push to GSD |
+| Perform remediation/retest | Security Tester | Nov. 14 | Push to GSD |
+| Prepare final presentation | Project Lead | Nov. 16 | Push to GSD |
+| Deliver final presentation and demonstration | Project Team | Nov. 17 | Push to GSD |
+| Complete documentation and final report | Project Lead | Dec. 1 | Push to GSD |
+| Submit all final deliverables on Canvas | Project Team | Dec. 3 | Push to GSD |
 
 ---
 
