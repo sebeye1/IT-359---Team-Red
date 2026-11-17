@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebRecon Report - http://127.0.0.1:8080</title>
+<style>
+body{font-family:Segoe UI,Helvetica,Arial,sans-serif;margin:0;background:#f4f5f7;color:#1f2328}
+header{background:#8b0000;color:#fff;padding:24px 40px}
+header h1{margin:0 0 4px;font-size:26px}
+header p{margin:2px 0;opacity:.9}
+main{max-width:1100px;margin:0 auto;padding:24px 40px}
+section{background:#fff;border-radius:8px;padding:20px 24px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+h2{margin-top:0;font-size:20px;border-bottom:2px solid #eee;padding-bottom:8px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #eee;vertical-align:top}
+th{background:#fafafa}
+.sev{display:inline-block;padding:2px 10px;border-radius:12px;color:#fff;font-size:12px;font-weight:600}
+.cards{display:flex;gap:12px;flex-wrap:wrap}
+.card{flex:1;min-width:110px;border-radius:8px;padding:14px;color:#fff;text-align:center}
+.card .n{font-size:28px;font-weight:700}
+.finding{border-left:5px solid #ccc;padding:12px 16px;margin:14px 0;background:#fcfcfc;border-radius:4px}
+.finding h3{margin:0 0 6px;font-size:16px}
+.label{font-weight:600}
+code,pre{font-family:Consolas,monospace;font-size:13px;background:#f0f0f0;border-radius:4px}
+code{padding:1px 4px}
+pre{padding:10px;white-space:pre-wrap;word-break:break-all}
+.muted{color:#666}
+footer{text-align:center;color:#888;font-size:12px;padding:20px}
+</style></head>
+<body>
+<header>
+  <h1>WebRecon Security Assessment Report</h1>
+  <p>Target: http://127.0.0.1:8080</p>
+  <p>Scan window: 2026-11-06 18:51:37 to 2026-11-06 18:51:38</p>
+</header>
+<main>
+<section>
+  <h2>Executive Summary</h2>
+  <p>WebRecon performed automated reconnaissance and configuration analysis against
+  <code>http://127.0.0.1:8080/</code>. The scan crawled 7 page(s),
+  found 2 form(s) and 2 cookie(s), and identified
+  <strong>21</strong> finding(s). Overall risk rating: <span class="sev" style="background:#c62828">High</span></p>
+  <div class="cards"><div class="card" style="background:#7b1fa2"><div class="n">0</div>Critical</div><div class="card" style="background:#c62828"><div class="n">3</div>High</div><div class="card" style="background:#ef6c00"><div class="n">9</div>Medium</div><div class="card" style="background:#f9a825"><div class="n">6</div>Low</div><div class="card" style="background:#1565c0"><div class="n">3</div>Info</div></div>
+  <p class="muted">Automated results should be manually verified. This scan was limited to an
+  authorized testing environment and did not attempt exploitation.</p>
+</section>
+<section><h2>Findings Summary</h2><table><tr><th>Severity</th><th>ID</th><th>Finding</th><th>Category</th></tr><tr><td>High</td><td>WR-060</td><td>Git repository exposed</td><td>Sensitive File Exposure</td></tr><tr><td>High</td><td>WR-061</td><td>Environment file exposed</td><td>Sensitive File Exposure</td></tr><tr><td>High</td><td>WR-070</td><td>Password submitted over HTTP</td><td>Forms</td></tr><tr><td>Medium</td><td>WR-001</td><td>Site served over unencrypted HTTP</td><td>Transport Security</td></tr><tr><td>Medium</td><td>WR-010</td><td>Missing Content-Security-Policy header</td><td>Security Headers</td></tr><tr><td>Medium</td><td>WR-011</td><td>No clickjacking protection</td><td>Security Headers</td></tr><tr><td>Medium</td><td>WR-030</td><td>Insecure cookie attributes: sessionid</td><td>Cookie Security</td></tr><tr><td>Medium</td><td>WR-040</td><td>Overly permissive CORS policy</td><td>CORS</td></tr><tr><td>Medium</td><td>WR-051</td><td>Potentially dangerous HTTP methods allowed</td><td>HTTP Methods</td></tr><tr><td>Medium</td><td>WR-064</td><td>Directory listing enabled at /uploads/</td><td>Information Disclosure</td></tr><tr><td>Medium</td><td>WR-073</td><td>POST form with no visible CSRF token</td><td>Forms</td></tr><tr><td>Medium</td><td>WR-073</td><td>POST form with no visible CSRF token</td><td>Forms</td></tr><tr><td>Low</td><td>WR-012</td><td>Missing X-Content-Type-Options header</td><td>Security Headers</td></tr><tr><td>Low</td><td>WR-013</td><td>Missing Referrer-Policy header</td><td>Security Headers</td></tr><tr><td>Low</td><td>WR-020</td><td>Server version disclosed</td><td>Information Disclosure</td></tr><tr><td>Low</td><td>WR-021</td><td>Technology disclosed in X-Powered-By header</td><td>Information Disclosure</td></tr><tr><td>Low</td><td>WR-030</td><td>Insecure cookie attributes: theme</td><td>Cookie Security</td></tr><tr><td>Low</td><td>WR-050</td><td>HTTP TRACE method enabled</td><td>HTTP Methods</td></tr><tr><td>Info</td><td>WR-014</td><td>Missing Permissions-Policy header</td><td>Security Headers</td></tr><tr><td>Info</td><td>WR-074</td><td>Password field without autocomplete guidance</td><td>Forms</td></tr><tr><td>Info</td><td>WR-080</td><td>robots.txt lists hidden paths</td><td>Reconnaissance</td></tr></table></section>
+<section><h2>Detailed Findings</h2>
+        <div class="finding" style="border-left-color:#c62828">
+          <h3>1. Git repository exposed <span class="sev" style="background:#c62828">High</span></h3>
+          <p class="muted">WR-060 | Sensitive File Exposure</p>
+          <p><span class="label">Description:</span> The .git directory is reachable over the web. An attacker can often rebuild the full source code, including history and secrets.</p>
+          <p><span class="label">Evidence:</span> <code>http://127.0.0.1:8080/.git/HEAD returned: ref: refs/heads/main</code></p>
+          <p><span class="label">Recommendation:</span> Block access to .git in the web server config and remove it from the web root.</p>
+        </div>
+        <div class="finding" style="border-left-color:#c62828">
+          <h3>2. Environment file exposed <span class="sev" style="background:#c62828">High</span></h3>
+          <p class="muted">WR-061 | Sensitive File Exposure</p>
+          <p><span class="label">Description:</span> A .env file is publicly readable. These files usually hold passwords, API keys, and database connection strings.</p>
+          <p><span class="label">Evidence:</span> <code>http://127.0.0.1:8080/.env returned key=value content</code></p>
+          <p><span class="label">Recommendation:</span> Remove the .env file from the web root, block it in the server config, and rotate every secret it contained.</p>
+        </div>
+        <div class="finding" style="border-left-color:#c62828">
+          <h3>3. Password submitted over HTTP <span class="sev" style="background:#c62828">High</span></h3>
+          <p class="muted">WR-070 | Forms</p>
+          <p><span class="label">Description:</span> A login or password form sends credentials without encryption.</p>
+          <p><span class="label">Evidence:</span> <code>Form on http://127.0.0.1:8080/login (POST to http://127.0.0.1:8080/login)</code></p>
+          <p><span class="label">Recommendation:</span> Serve the page and the form action over HTTPS only.</p>
+        </div>
+        <div class="finding" style="border-left-color:#ef6c00">
+          <h3>4. Site served over unencrypted HTTP <span class="sev" style="background:#ef6c00">Medium</span></h3>
+          <p class="muted">WR-001 | Transport Security</p>
+          <p><span class="label">Description:</span> The application responded over plain HTTP. Traffic, including credentials and session cookies, can be read or modified by anyone on the network path.</p>
+          <p><span class="label">Evidence:</span> <code>Final URL: http://127.0.0.1:8080/</code></p>
+          <p><span class="label">Recommendation:</span> Serve the application over HTTPS and redirect all HTTP requests to HTTPS.</p>
+        </div>
+        <div class="finding" style="border-left-color:#ef6c00">
+          <h3>5. Missing Content-Security-Policy header <span class="sev" style="background:#ef6c00">Medium</span></h3>
+          <p class="muted">WR-010 | Security Headers</p>
+          <p><span class="label">Description:</span> No Content Security Policy was set, so the browser has no restriction on where scripts and other resources can load from. This makes cross-site scripting easier to exploit.</p>
+          <p><span class="label">Evidence:</span> <code>Header Content-Security-Policy not present in response</code></p>
+          <p><span class="label">Recommendation:</span> Add a Content-Security-Policy header, starting with something like default-src &#x27;self&#x27;.</p>
+        </div>
+        <div class="finding" style="border-left-color:#ef6c00">
+          <h3>6. No clickjacking protection <span class="sev" style="background:#ef6c00">Medium</span></h3>
+          <p class="muted">WR-011 | Security Headers</p>
+          <p><span class="label">Description:</span> Neither X-Frame-Options nor a CSP frame-ancestors directive was set, so the page can be embedded in a frame on another site and used for clickjacking.</p>
+          <p><span class="label">Evidence:</span> <code>X-Frame-Options and CSP frame-ancestors both absent</code></p>
+          <p><span class="label">Recommendation:</span> Add X-Frame-Options: DENY or a CSP frame-ancestors &#x27;none&#x27; directive.</p>
+        </div>
+        <div class="finding" style="border-left-color:#ef6c00">
+          <h3>7. Insecure cookie attributes: sessionid <span class="sev" style="background:#ef6c00">Medium</span></h3>
+          <p class="muted">WR-030 | Cookie Security</p>
+          <p><span class="label">Description:</span> Cookie flags limit how a cookie can be stolen or misused. Secure keeps it off plain HTTP, HttpOnly keeps it away from JavaScript, and SameSite limits cross-site request forgery. The name suggests this is a session cookie.</p>
+          <p><span class="label">Evidence:</span> <code>Secure flag missing; HttpOnly flag missing; SameSite attribute missing. Raw header: sessionid=a81b2c; Path=/</code></p>
+          <p><span class="label">Recommendation:</span> Set the cookie with Secure, HttpOnly, and SameSite=Lax or Strict.</p>
+        </div>
+        <div class="finding" style="border-left-color:#ef6c00">
+          <h3>8. Overly permissive CORS policy <span class="sev" style="background:#ef6c00">Medium</span></h3>
+          <p class="muted">WR-040 | CORS</p>
+          <p><span class="label">Description:</span> Access-Control-Allow-Origin is set to a wildcard, so any website can read responses from this application in a visitor&#x27;s browser.</p>
+          <p><span class="label">Evidence:</span> <code>Access-Control-Allow-Origin: *</code></p>
+          <p><span class="label">Recommendation:</span> Restrict Access-Control-Allow-Origin to a list of trusted origins.</p>
+        </div>
+        <div class="finding" style="border-left-color:#ef6c00">
+          <h3>9. Potentially dangerous HTTP methods allowed <span class="sev" style="background:#ef6c00">Medium</span></h3>
+          <p class="muted">WR-051 | HTTP Methods</p>
+          <p><span class="label">Description:</span> The server advertises methods that can change or remove content. Verify they require authentication.</p>
+          <p><span class="label">Evidence:</span> <code>Allow: GET, POST, PUT, DELETE, OPTIONS, TRACE</code></p>
+          <p><span class="label">Recommendation:</span> Disable methods the application does not need.</p>
+        </div>
+        <div class="finding" style="border-left-color:#ef6c00">
+          <h3>10. Directory listing enabled at /uploads/ <span class="sev" style="background:#ef6c00">Medium</span></h3>
+          <p class="muted">WR-064 | Information Disclosure</p>
+          <p><span class="label">Description:</span> The server lists directory contents, letting anyone browse files that were never linked.</p>
+          <p><span class="label">Evidence:</span> <code>http://127.0.0.1:8080/uploads/ returned an &#x27;Index of&#x27; page</code></p>
+          <p><span class="label">Recommendation:</span> Disable directory listing, for example Options -Indexes in Apache.</p>
+        </div>
+        <div class="finding" style="border-left-color:#ef6c00">
+          <h3>11. POST form with no visible CSRF token <span class="sev" style="background:#ef6c00">Medium</span></h3>
+          <p class="muted">WR-073 | Forms</p>
+          <p><span class="label">Description:</span> No hidden anti-CSRF token field was found. Unless the app protects against CSRF another way, such as SameSite cookies or custom headers, an attacker&#x27;s site could submit this form as a logged-in user. Verify manually.</p>
+          <p><span class="label">Evidence:</span> <code>Form on http://127.0.0.1:8080/login (POST to http://127.0.0.1:8080/login)</code></p>
+          <p><span class="label">Recommendation:</span> Add a per-session or per-request anti-CSRF token to state-changing forms.</p>
+        </div>
+        <div class="finding" style="border-left-color:#ef6c00">
+          <h3>12. POST form with no visible CSRF token <span class="sev" style="background:#ef6c00">Medium</span></h3>
+          <p class="muted">WR-073 | Forms</p>
+          <p><span class="label">Description:</span> No hidden anti-CSRF token field was found. Unless the app protects against CSRF another way, such as SameSite cookies or custom headers, an attacker&#x27;s site could submit this form as a logged-in user. Verify manually.</p>
+          <p><span class="label">Evidence:</span> <code>Form on http://127.0.0.1:8080/contact (POST to http://127.0.0.1:8080/contact)</code></p>
+          <p><span class="label">Recommendation:</span> Add a per-session or per-request anti-CSRF token to state-changing forms.</p>
+        </div>
+        <div class="finding" style="border-left-color:#f9a825">
+          <h3>13. Missing X-Content-Type-Options header <span class="sev" style="background:#f9a825">Low</span></h3>
+          <p class="muted">WR-012 | Security Headers</p>
+          <p><span class="label">Description:</span> Without X-Content-Type-Options the browser may guess content types, which can turn an uploaded file into executable script.</p>
+          <p><span class="label">Evidence:</span> <code>Header X-Content-Type-Options not present in response</code></p>
+          <p><span class="label">Recommendation:</span> Add X-Content-Type-Options: nosniff.</p>
+        </div>
+        <div class="finding" style="border-left-color:#f9a825">
+          <h3>14. Missing Referrer-Policy header <span class="sev" style="background:#f9a825">Low</span></h3>
+          <p class="muted">WR-013 | Security Headers</p>
+          <p><span class="label">Description:</span> No Referrer-Policy was set, so full URLs including query strings may leak to other sites.</p>
+          <p><span class="label">Evidence:</span> <code>Header Referrer-Policy not present in response</code></p>
+          <p><span class="label">Recommendation:</span> Add Referrer-Policy: strict-origin-when-cross-origin or stricter.</p>
+        </div>
+        <div class="finding" style="border-left-color:#f9a825">
+          <h3>15. Server version disclosed <span class="sev" style="background:#f9a825">Low</span></h3>
+          <p class="muted">WR-020 | Information Disclosure</p>
+          <p><span class="label">Description:</span> The Server header reveals software version details, which helps an attacker look up known vulnerabilities for that exact version.</p>
+          <p><span class="label">Evidence:</span> <code>Server: Apache/2.4.29 (Ubuntu)</code></p>
+          <p><span class="label">Recommendation:</span> Configure the web server to hide version details, for example ServerTokens Prod in Apache or server_tokens off in Nginx.</p>
+        </div>
+        <div class="finding" style="border-left-color:#f9a825">
+          <h3>16. Technology disclosed in X-Powered-By header <span class="sev" style="background:#f9a825">Low</span></h3>
+          <p class="muted">WR-021 | Information Disclosure</p>
+          <p><span class="label">Description:</span> This header advertises the framework or platform behind the site.</p>
+          <p><span class="label">Evidence:</span> <code>X-Powered-By: PHP/7.2.24</code></p>
+          <p><span class="label">Recommendation:</span> Remove the X-Powered-By header from responses.</p>
+        </div>
+        <div class="finding" style="border-left-color:#f9a825">
+          <h3>17. Insecure cookie attributes: theme <span class="sev" style="background:#f9a825">Low</span></h3>
+          <p class="muted">WR-030 | Cookie Security</p>
+          <p><span class="label">Description:</span> Cookie flags limit how a cookie can be stolen or misused. Secure keeps it off plain HTTP, HttpOnly keeps it away from JavaScript, and SameSite limits cross-site request forgery.</p>
+          <p><span class="label">Evidence:</span> <code>Secure flag missing; HttpOnly flag missing; SameSite attribute missing. Raw header: theme=dark; Path=/</code></p>
+          <p><span class="label">Recommendation:</span> Set the cookie with Secure, HttpOnly, and SameSite=Lax or Strict.</p>
+        </div>
+        <div class="finding" style="border-left-color:#f9a825">
+          <h3>18. HTTP TRACE method enabled <span class="sev" style="background:#f9a825">Low</span></h3>
+          <p class="muted">WR-050 | HTTP Methods</p>
+          <p><span class="label">Description:</span> TRACE echoes the request back, which can expose headers and has been used in cross-site tracing attacks.</p>
+          <p><span class="label">Evidence:</span> <code>TRACE request returned 200 with the request echoed</code></p>
+          <p><span class="label">Recommendation:</span> Disable TRACE, for example TraceEnable Off in Apache.</p>
+        </div>
+        <div class="finding" style="border-left-color:#1565c0">
+          <h3>19. Missing Permissions-Policy header <span class="sev" style="background:#1565c0">Info</span></h3>
+          <p class="muted">WR-014 | Security Headers</p>
+          <p><span class="label">Description:</span> No Permissions-Policy was set to limit browser features such as camera, microphone, and geolocation.</p>
+          <p><span class="label">Evidence:</span> <code>Header Permissions-Policy not present in response</code></p>
+          <p><span class="label">Recommendation:</span> Add a Permissions-Policy header that disables features the site does not use.</p>
+        </div>
+        <div class="finding" style="border-left-color:#1565c0">
+          <h3>20. Password field without autocomplete guidance <span class="sev" style="background:#1565c0">Info</span></h3>
+          <p class="muted">WR-074 | Forms</p>
+          <p><span class="label">Description:</span> The password field has no autocomplete attribute. This is informational; modern guidance prefers current-password or new-password over turning it off.</p>
+          <p><span class="label">Evidence:</span> <code>Form on http://127.0.0.1:8080/login (POST to http://127.0.0.1:8080/login)</code></p>
+          <p><span class="label">Recommendation:</span> Set autocomplete=&quot;current-password&quot; or &quot;new-password&quot; on password fields.</p>
+        </div>
+        <div class="finding" style="border-left-color:#1565c0">
+          <h3>21. robots.txt lists hidden paths <span class="sev" style="background:#1565c0">Info</span></h3>
+          <p class="muted">WR-080 | Reconnaissance</p>
+          <p><span class="label">Description:</span> robots.txt tells crawlers which paths to skip, but anyone can read it. Paths listed here are worth reviewing during testing.</p>
+          <p><span class="label">Evidence:</span> <code>Disallowed: /admin/, /backup/</code></p>
+          <p><span class="label">Recommendation:</span> Do not rely on robots.txt to hide sensitive areas. Protect them with authentication.</p>
+        </div></section>
+<section>
+  <h2>Reconnaissance Data</h2>
+  <p><span class="label">Final URL:</span> http://127.0.0.1:8080/ |
+     <span class="label">Status:</span> 200 |
+     <span class="label">Allowed methods:</span> GET, POST, PUT, DELETE, OPTIONS, TRACE |
+     <span class="label">TRACE enabled:</span> Yes</p>
+  <p><span class="label">Redirect chain:</span> None</p>
+  <h3>Response Headers</h3><table><tr><th>Header</th><th>Value</th></tr><tr><td>Access-Control-Allow-Origin</td><td>*</td></tr><tr><td>Content-Length</td><td>351</td></tr><tr><td>Content-Type</td><td>text/html; charset=utf-8</td></tr><tr><td>Date</td><td>Fri, 06 Nov 2026 18:51:37 GMT</td></tr><tr><td>Server</td><td>Apache/2.4.29 (Ubuntu)</td></tr><tr><td>Set-Cookie</td><td>sessionid=a81b2c; Path=/, theme=dark; Path=/</td></tr><tr><td>X-Powered-By</td><td>PHP/7.2.24</td></tr></table>
+  <h3>Cookies</h3><table><tr><th>Name</th><th>Secure</th><th>HttpOnly</th><th>SameSite</th><th>Set by</th></tr><tr><td>sessionid</td><td>No</td><td>No</td><td>Not set</td><td>http://127.0.0.1:8080/</td></tr><tr><td>theme</td><td>No</td><td>No</td><td>Not set</td><td>http://127.0.0.1:8080/</td></tr></table>
+  <h3>Pages Crawled</h3><table><tr><th>Status</th><th>URL</th><th>Title</th></tr><tr><td>200</td><td>http://127.0.0.1:8080/</td><td>Team Red Lab Store</td></tr><tr><td>200</td><td>http://127.0.0.1:8080/login</td><td>Login</td></tr><tr><td>200</td><td>http://127.0.0.1:8080/about</td><td>About</td></tr><tr><td>200</td><td>http://127.0.0.1:8080/contact</td><td>Contact</td></tr><tr><td>200</td><td>http://127.0.0.1:8080/uploads/</td><td>Index of /uploads/</td></tr><tr><td>404</td><td>http://127.0.0.1:8080/uploads/invoice_2026.pdf</td><td>404</td></tr><tr><td>404</td><td>http://127.0.0.1:8080/uploads/db_backup.sql</td><td>404</td></tr></table>
+  <h3>Forms</h3><table><tr><th>Page</th><th>Method</th><th>Action</th><th>Inputs</th></tr><tr><td>http://127.0.0.1:8080/login</td><td>POST</td><td>http://127.0.0.1:8080/login</td><td>username [text], password [password], (unnamed) [submit]</td></tr><tr><td>http://127.0.0.1:8080/contact</td><td>POST</td><td>http://127.0.0.1:8080/contact</td><td>email [email], message [textarea], (unnamed) [submit]</td></tr></table>
+  <h3>Internal Links (7)</h3><table><tr><th>URL</th></tr><tr><td>http://127.0.0.1:8080/</td></tr><tr><td>http://127.0.0.1:8080/about</td></tr><tr><td>http://127.0.0.1:8080/contact</td></tr><tr><td>http://127.0.0.1:8080/login</td></tr><tr><td>http://127.0.0.1:8080/uploads/</td></tr><tr><td>http://127.0.0.1:8080/uploads/db_backup.sql</td></tr><tr><td>http://127.0.0.1:8080/uploads/invoice_2026.pdf</td></tr></table>
+  <h3>External Links (1)</h3><table><tr><th>URL</th></tr><tr><td>https://example.com/partner</td></tr></table>
+  <h3>Path Probes</h3><table><tr><th>Path</th><th>Status</th></tr><tr><td>/robots.txt</td><td>200</td></tr><tr><td>/.git/HEAD</td><td>200</td></tr><tr><td>/.env</td><td>200</td></tr><tr><td>/server-status</td><td>404</td></tr><tr><td>/phpinfo.php</td><td>404</td></tr><tr><td>/uploads/</td><td>200</td></tr><tr><td>/backup/</td><td>404</td></tr><tr><td>/images/</td><td>404</td></tr></table>
+  <h3>robots.txt</h3><pre>User-agent: *
+Disallow: /admin/
+Disallow: /backup/
+</pre>
+</section>
+
+</main>
+<footer>Generated by WebRecon | IT 359 Team Red | For authorized testing only</footer>
+</body></html>
