@@ -311,5 +311,23 @@ This allows project tasks to remain synchronized with the primary project-tracki
 
 # Use Of Artificial Intelligence 
 
-We plan on using Claude 4 for assistance in our python scripting. We will engineer and automate the artificial intelligence to ensure our in-scope requirements are met. 
-Utilizing Sushi, we will be using the "llama3.3:latest" model to generate the CVSS scores based on the vulnerability findings. 
+AI was used in two separate ways on this project: as a development assistant while we built WebRecon, and as an optional feature inside WebRecon itself.
+
+## 1. Claude for code development
+- The CVSS v3.1 calculator and the table of CVSS vectors for each check
+- The MITRE ATT&CK technique mapping for each check
+- The connection to ISU's Sushi AI server, including caching and the fallback to static scores
+- Running CVSS and ATT&CK lookups in parallel, with thread-safe caches
+- The penetration test report, the presentation content, and debugging during setup
+## 2. Sushi AI inside WebRecon
+- A suggested CVSS v3.1 vector and MITRE ATT&CK technique IDs for each finding
+- WebRecon, from the vector, using FIRST's formula.
+- Every technique ID is checked against MITRE's official list, and its name and tactic are taken from MITRE
+
+## Limitations
+
+- AI scores are estimates for the kind of weakness, not measurements of a specific site, and are labelled that way in the report.
+- Model output can be inaccurate. Findings and scores should be verified manually.
+- Sushi is only reachable from the ISU network or VPN.
+
+
